@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@cmd-johnson/oauth2-client": "jsr:@cmd-johnson/oauth2-client@^2.0.0",
+    "@oak/oak": "jsr:@oak/oak@^17.1.4",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.4",
+    "@oak_sessions": "https://deno.land/x/oak_sessions@v9.0.0/mod.ts"
+  },
+  "tasks": {
+    "start": "deno run --allow-net --allow-read --allow-env --watch=static,views src/server.ts"
+  }
+}
