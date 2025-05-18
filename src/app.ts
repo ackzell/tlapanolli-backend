@@ -3,7 +3,7 @@ import type { PinoLogger } from 'hono-pino';
 import { OpenAPIHono } from '@hono/zod-openapi';
 import { requestId } from 'hono/request-id';
 
-import { pinoLogger } from './middlewares/app-logger.js';
+import { appLogger } from './middlewares/app-logger.js';
 
 interface AppBindings {
   Variables: {
@@ -13,7 +13,7 @@ interface AppBindings {
 
 export const app = new OpenAPIHono<AppBindings>();
 app.use(requestId())
-  .use(pinoLogger());
+  .use(appLogger());
 
 app.get('/', (c) => {
   return c.text('Hello Hono!');
