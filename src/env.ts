@@ -10,6 +10,8 @@ const EnvSchema = z.object({
   PORT: z.coerce.number().default(8888),
   // PINO LOG LEVELS:
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace']),
+  SPOTIFY_CLIENT_ID: z.string().length(32),
+  SPOTIFY_CLIENT_SECRET: z.string().length(32),
 });
 
 export type env = z.infer<typeof EnvSchema>;
