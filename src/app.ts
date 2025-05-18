@@ -1,15 +1,28 @@
-import { OpenAPIHono } from '@hono/zod-openapi';
-import { notFound, onError } from 'stoker/middlewares';
+import type { PinoLogger } from 'hono-pino';
 
-export const app = new OpenAPIHono();
+import { OpenAPIHono } from '@hono/zod-openapi';
+import { requestId } from 'hono/request-id';
+
+import { pinoLogger } from './middlewares/app-logger.js';
+
+interface AppBindings {
+  Variables: {
+    logger: PinoLogger;
+  };
+}
+
+export const app = new OpenAPIHono<AppBindings>();
+app.use(requestId())
+  .use(pinoLogger());
 
 app.get('/', (c) => {
   return c.text('Hello Hono!');
 });
 
-app.get('/error', () => {
+app.get('/error', (c) => {
+  c.var.logger.info('lol');
   throw new Error('This is an error');
 });
 
-app.notFound(notFound);
-app.onError(onError);
+// app.notFound(notFound);
+// app.onError(onError);
