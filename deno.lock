@@ -2,6 +2,9 @@
   "version": "5",
   "specifiers": {
     "jsr:@cmd-johnson/oauth2-client@2": "2.0.0",
+    "jsr:@deno-library/logger@*": "1.2.0",
+    "jsr:@libs/logger@*": "3.1.3",
+    "jsr:@libs/logger@^3.1.3": "3.1.3",
     "jsr:@oak/commons@1": "1.0.1",
     "jsr:@oak/oak@17": "17.1.4",
     "jsr:@oak/oak@^17.1.4": "17.1.4",
@@ -13,9 +16,13 @@
     "jsr:@std/encoding@1": "1.0.10",
     "jsr:@std/encoding@^1.0.10": "1.0.10",
     "jsr:@std/encoding@^1.0.5": "1.0.10",
+    "jsr:@std/fmt@1.0.3": "1.0.3",
+    "jsr:@std/fs@^1.0.6": "1.0.17",
     "jsr:@std/http@1": "1.0.16",
     "jsr:@std/media-types@1": "1.1.0",
     "jsr:@std/path@1": "1.0.9",
+    "jsr:@std/path@^1.0.6": "1.0.9",
+    "jsr:@std/path@^1.0.9": "1.0.9",
     "npm:@types/node@*": "22.15.15",
     "npm:path-to-regexp@^6.3.0": "6.3.0"
   },
@@ -25,6 +32,16 @@
       "dependencies": [
         "jsr:@std/encoding@^1.0.5"
       ]
+    },
+    "@deno-library/logger@1.2.0": {
+      "integrity": "c6f0371cb2d08c0a7b82d30d494fac5d25f115695c63a3a295c4e35a0e6669a0",
+      "dependencies": [
+        "jsr:@std/fmt",
+        "jsr:@std/fs"
+      ]
+    },
+    "@libs/logger@3.1.3": {
+      "integrity": "30177fb47e1c81a9fa3bab5795f799283938e67bbeaf480f8cf3bb3605a9fb86"
     },
     "@oak/commons@1.0.1": {
       "integrity": "889ff210f0b4292591721be07244ecb1b5c118742f5273c70cf30d7cd4184d0c",
@@ -45,7 +62,7 @@
         "jsr:@std/bytes",
         "jsr:@std/http",
         "jsr:@std/media-types",
-        "jsr:@std/path",
+        "jsr:@std/path@1",
         "npm:path-to-regexp"
       ]
     },
@@ -63,6 +80,15 @@
     },
     "@std/encoding@1.0.10": {
       "integrity": "8783c6384a2d13abd5e9e87a7ae0520a30e9f56aeeaa3bdf910a3eaaf5c811a1"
+    },
+    "@std/fmt@1.0.3": {
+      "integrity": "97765c16aa32245ff4e2204ecf7d8562496a3cb8592340a80e7e554e0bb9149f"
+    },
+    "@std/fs@1.0.17": {
+      "integrity": "1c00c632677c1158988ef7a004cb16137f870aafdb8163b9dce86ec652f3952b",
+      "dependencies": [
+        "jsr:@std/path@^1.0.9"
+      ]
     },
     "@std/http@1.0.16": {
       "integrity": "80c8d08c4bfcf615b89978dcefb84f7e880087cf3b6b901703936f3592a06933",
@@ -90,6 +116,9 @@
     "undici-types@6.21.0": {
       "integrity": "sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ=="
     }
+  },
+  "redirects": {
+    "https://deno.land/x/optic/mod.ts": "https://deno.land/x/optic@2.0.1/mod.ts"
   },
   "remote": {
     "https://deno.land/std@0.132.0/_deno_unstable.ts": "23a1a36928f1b6d3b0170aaa67de09af12aa998525f608ff7331b9fb364cbde6",
@@ -454,6 +483,24 @@
     "https://deno.land/x/oak_sessions@v9.0.0/src/stores/SqliteStore.ts": "ef660cb012934f664b2e3e311a222be5597ddcd18773ccf7e5c7e3e79ab1d2db",
     "https://deno.land/x/oak_sessions@v9.0.0/src/stores/Store.ts": "a559ef1a47a41c95c32b4a147e90e4474d07678fa4e169651f5b190c48b656e4",
     "https://deno.land/x/oak_sessions@v9.0.0/src/stores/WebdisStore.ts": "a87da3a42927b7d18fb9ce307784b19795c512c7eb90e0edebd92eb21eb07f57",
+    "https://deno.land/x/optic@2.0.1/deps.ts": "c22cffb96bb68df436c85b13dec9cbb289dc9f26dba617f60cd7885bf484a460",
+    "https://deno.land/x/optic@2.0.1/formatters/color.ts": "82341d51851a86c188e9a808b274ded9b4e60ae9f2291eba4975a22e4b8b5cb6",
+    "https://deno.land/x/optic@2.0.1/formatters/simpleDateTimeFormatter.ts": "1f144db2509035f3e7816e515faae73b383021390cbc64cec1af2d0390e55043",
+    "https://deno.land/x/optic@2.0.1/formatters/tokenReplacer.ts": "f9122fc54720a759bbc3a4977f42f71a898b556c3cb1a27b42884433cab10a67",
+    "https://deno.land/x/optic@2.0.1/logger/dedupe.ts": "970e8720f4c3e2ea644cf17e9632d468f5b9c8de43ace8115a81f6c1d31e9bfd",
+    "https://deno.land/x/optic@2.0.1/logger/levels.ts": "b12e73583c37103d0775037cda26181b28675ac1bb9bfa022ca1d7a536d84594",
+    "https://deno.land/x/optic@2.0.1/logger/logRecord.ts": "d1251d191ae229a7373a41b1ddf918b83f978abd213f07f300c3a3e54340da63",
+    "https://deno.land/x/optic@2.0.1/logger/logger.ts": "d1d02fe43bbcdfac20cbed5964103a2af60b51a8043ba59d21755fdd3528f39d",
+    "https://deno.land/x/optic@2.0.1/logger/meta.ts": "afe150ecd14eb13097ad313a005fedf0b279060fb71f5815efe1b835186ed11d",
+    "https://deno.land/x/optic@2.0.1/logger/profileMeasure.ts": "c7c5d0ae2797681ddfa611e369b432a093fcd2e5f0e29956d81746a29b712efa",
+    "https://deno.land/x/optic@2.0.1/logger/rateLimitContext.ts": "f75297eb78d780c3009ff1d72f3776eb8631a23b728050d7a9c98c52f25ba1d6",
+    "https://deno.land/x/optic@2.0.1/mod.ts": "c34e529c033cfbd0a49a6c19132e9fdc1ad1644c35a300f40fb6da732d4a0af4",
+    "https://deno.land/x/optic@2.0.1/streams/baseStream.ts": "26073937d86a945e1f2643f70286ee33f92fc655f39007891320974088d4ca59",
+    "https://deno.land/x/optic@2.0.1/streams/consoleStream.ts": "f18d020455b410b7f887c6db03caf92fdd515543d4d9aafa3eb0fdbba3ba2917",
+    "https://deno.land/x/optic@2.0.1/types.ts": "cce53ccfee779d6c2d4d7f350724f9c03ad15baddaa171ca8d2370044e5fa617",
+    "https://deno.land/x/optic@2.0.1/utils/asString.ts": "a9505cfc74361dfa0c375afb0ff49881c1231f1e224809e2ec99034768df34d1",
+    "https://deno.land/x/optic@2.0.1/utils/numberFormatter.ts": "3be97a7154bd8abb1004ac8e43e1ad82effdcd7d910ac2128ba9d6c857ee851e",
+    "https://deno.land/x/optic@2.0.1/utils/stringify.ts": "c55decb12217125343d7dd2796e0a0f64297401839957367c96d74b9faca3f27",
     "https://deno.land/x/postgresjs@v3.2.4/mod.js": "cb68f17d6d90df318934deccdb469d740be0888e7a597a9e7eea7100ce36a252",
     "https://deno.land/x/postgresjs@v3.2.4/polyfills.js": "e00ddcd1b0d6a205d53dc622574b4b7378f2239fb8d2ab5079025b18cc09393c",
     "https://deno.land/x/postgresjs@v3.2.4/src/bytes.js": "66f581f4c756358c8dce5760175a42aa45ebbd4efb10c653f57b9e0cb4f932fa",
@@ -497,6 +544,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@cmd-johnson/oauth2-client@2",
+      "jsr:@libs/logger@^3.1.3",
       "jsr:@oak/oak@^17.1.4",
       "jsr:@std/dotenv@~0.225.4"
     ]
