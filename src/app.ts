@@ -5,8 +5,8 @@ import { OpenAPIHono } from '@hono/zod-openapi';
 import { requestId } from 'hono/request-id';
 import { serveEmojiFavicon } from 'stoker/middlewares';
 
-import { appEnv } from './env.js';
-import { appLogger } from './middlewares/app-logger.js';
+import { appEnv } from './env';
+import { appLogger } from './middlewares/app-logger';
 
 interface AppBindings {
   Variables: {
@@ -123,7 +123,7 @@ app.get('/callback', async (c) => {
 
   c.var.logger.info(JSON.stringify(user, null, 2));
 
-  return c.json(JSON.stringify(user, null, 2));
+  return c.json({ oauth2Token });
 });
 
 app.get('/error', (c) => {
