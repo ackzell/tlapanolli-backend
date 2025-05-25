@@ -123,11 +123,7 @@ app.get('/callback', async (c) => {
 
   c.var.logger.info(JSON.stringify(user, null, 2));
 
-  return c.redirect('/welcome');
-});
-
-app.get('/welcome', (c) => {
-  return c.text(`Welcome ${user.display_name}! ${JSON.stringify(user)}, null, 2)}`);
+  return c.json(JSON.stringify(user, null, 2));
 });
 
 app.get('/error', (c) => {

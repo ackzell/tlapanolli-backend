@@ -3,6 +3,7 @@
     "target": "ESNext",
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
+    "baseUrl": "./",
     "module": "Preserve",
     "moduleResolution": "Bundler",
     "types": [
@@ -16,6 +17,9 @@
   "exclude": ["node_modules"],
   "paths": {
     "@/*": ["./src/*"]
+  },
+  "tsc-alias": {
+    "resolveFullPaths": true
   }
 }
 
